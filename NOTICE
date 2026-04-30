@@ -1,0 +1,12 @@
+HTMLCure
+Copyright 2026 HTMLCure Contributors
+
+This product includes source code and benchmark prompts for evaluating
+single-file HTML generation, rendering, interaction behavior, and repair.
+
+Code is licensed under the Apache License, Version 2.0.
+
+Benchmark data is released for research and reproducibility. If your project
+requires separate data licensing, use the benchmark files under CC-BY-4.0 and
+cite this repository. Do not redistribute model outputs, API responses, or
+evaluation artifacts unless you have the right to do so.

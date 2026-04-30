@@ -1,0 +1,13 @@
+# Local vLLM generation profile.
+# Start a local OpenAI-compatible server separately, then use:
+#   python -m htmleval benchmark run benchmark/en --generate --model local_vllm \
+#     --models-config configs/models.example.yaml --config configs/eval.example.yaml
+
+models:
+  local_vllm:
+    base_url: "http://127.0.0.1:8000/v1"
+    api_key: "EMPTY"
+    model: "local-html-model"
+    concurrency: 2
+    temperature: 0.0
+    timeout: 600

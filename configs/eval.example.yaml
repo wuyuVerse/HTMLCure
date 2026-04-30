@@ -1,0 +1,41 @@
+# HTMLCure evaluation configuration.
+#
+# Credentials can be supplied with environment variables:
+#   export HTMLEVAL_BASE_URL="https://YOUR_API_ENDPOINT/v1"
+#   export HTMLEVAL_API_KEY="..."
+#   export HTMLEVAL_MODEL="your-vision-capable-model"
+
+agent:
+  base_url: "${HTMLEVAL_BASE_URL}"
+  api_key: "${HTMLEVAL_API_KEY}"
+  model: "${HTMLEVAL_MODEL}"
+  max_steps: 30
+  timeout: 600
+  llm_timeout: 300
+
+evaluator:
+  base_url: "${HTMLEVAL_BASE_URL}"
+  api_key: "${HTMLEVAL_API_KEY}"
+  model: "${HTMLEVAL_MODEL}"
+  max_screenshots: 14
+
+processing:
+  concurrency: 2
+  generation_concurrency: 2
+  evaluation_concurrency: 2
+  vlm_concurrency: 1
+  browser_pool_size: 2
+  browser_launch_rate: 1.0
+  retry: 2
+  save_interval: 10
+  resume: true
+  record_timeout: 300
+  skip_agent_phase: true
+  skip_vision_phase: false
+
+filter:
+  tier_a_threshold: 80
+  tier_b_threshold: 40
+  min_html_size: 200
+
+workspace: "./outputs/eval_workspace"

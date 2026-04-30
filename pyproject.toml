@@ -1,0 +1,62 @@
+[project]
+name = "htmlcure"
+version = "0.1.0"
+description = "HTML generation benchmark, evaluation, and repair toolkit"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "HTMLCure Contributors"}
+]
+keywords = ["html", "benchmark", "evaluation", "llm", "playwright"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn>=0.32.0",
+    "openai>=1.50.0",
+    "playwright>=1.49.0",
+    "pydantic>=2.0.0",
+    "Pillow>=10.0.0",
+    "aiofiles>=24.1.0",
+    "aiohttp>=3.10.0",
+    "jinja2>=3.1.0",
+    "pyyaml>=6.0",
+    "tqdm>=4.60.0",
+    "httpx>=0.28.0",
+    "numpy>=1.26.0",
+]
+
+[project.optional-dependencies]
+agent = [
+    "browser-use>=0.2.0",
+    "langchain-openai>=0.3.0",
+]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[project.scripts]
+htmleval = "htmleval.__main__:main"
+htmlrefine = "htmlrefine.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/wuyuVerse/HTMLCure"
+Issues = "https://github.com/wuyuVerse/HTMLCure/issues"
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["htmleval*", "htmlrefine*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
